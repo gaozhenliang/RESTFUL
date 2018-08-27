@@ -10,7 +10,7 @@ from App.models import Student,Grade
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ("id","name","sex","age","contend","isDelete","grade")   #将需要序列化的字段写到这个元组中
+        fields = ("id","name","sex","age","contend","isDelete","grade","owner")   #将需要序列化的字段写到这个元组中
 
 
 #给班级创建序列化类
@@ -19,3 +19,5 @@ class GradeSerializer(serializers.ModelSerializer):
         model = Grade
 
         fields = ("id","name","boyNum","girlNum","isDelete")
+
+
