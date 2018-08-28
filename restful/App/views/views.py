@@ -51,6 +51,8 @@ def studentDetail(request,pk):
         return JsonResponse(serializer.data)
 
     elif request.method == 'PUT':
+        print('stu is {}'.format(stu))
+        print('request.POST is {}'.format(request.POST))
         content = JSONRenderer().render(request.POST)
         stream = BytesIO(content)
         stuDict = JSONParser().parse(stream)
@@ -63,4 +65,5 @@ def studentDetail(request,pk):
             return JsonResponse(serializer.data,status=201)
         return JsonResponse({'error':serializer.errors},status=400)
     elif request.method == 'DELETE':
-        pass
+        stu.delete()
+        return HttpResponse(status=204,content_type='application/json')
