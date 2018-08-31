@@ -11,6 +11,10 @@ urlpatterns = [
     #PUT /students/id
     #DELETE /students/id
     url(r'^students/(?P<pk>\d+)/$', views.StudentDetail.as_view()),
+
+
+    url(r'^users/$',views.UserList.as_view()),
+    url(r'^user/(?P<pk>\d+)/$',views.UserDetail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

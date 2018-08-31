@@ -32,7 +32,7 @@ class Student(models.Model):
     grade = models.ForeignKey(Grade)
     isDelete = models.BooleanField(default=False)
 
-    owner = models.ForeignKey('auth.User',related_name='students')
+    owner = models.ForeignKey('auth.User',related_name='students')  #给user类添加了一个字段students，这样做的话就能查看当前用户下的学生 相当与request.user.student_set（）
 
     def __str__(self):
         return self.name
